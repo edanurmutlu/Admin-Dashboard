@@ -215,3 +215,31 @@ body {
 }
 
 .navbar-link:is(:hover, :focus) { background: var(--black_08); }
+
+.navbar-link.active { color: var(--blue-ryb) }
+
+.user-action-list {
+  padding-inline: 15px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.notification {
+  color: var(--onyx);
+  padding: 8px;
+  border-radius: var(--radius-6);
+}
+
+.notification:is(:hover, :focus) { background: var(var(--black_08));}
+
+.header-profiler {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  padding-right: 15px;
+  border-radius: var(--radius-6);
+  
+}
