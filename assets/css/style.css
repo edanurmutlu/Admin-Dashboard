@@ -297,7 +297,9 @@ body {
   --color: var(--emerald);
 }
 
-.card-badge.radius-pill { border-radius: 50px; }
+.card-badge.radius-pill { border-radius: 50px; } /* öğelerin kenar yuvarlaklığını (border radius) ayarlanır */
+
+
 
 
 /*-----------------------------------*\
@@ -664,27 +666,27 @@ body {
   gap: 15px;
 }
 
-.tasks .card-input {
+.tasks .card-input { /* checked açıklama kısmı */
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* dikey yönde, öğeler üstten başlayarak hizalanır */
   gap: 8px;
 }
 
 .tasks .card-input > input {
   margin-top: 2px;
-  accent-color: var(--blue-ryb);
+  accent-color: var(--blue-ryb); /* vurgu rengi */
 }
 
 .tasks .card-input > input:checked { filter: drop-shadow(0 0 2px var(--blue-ryb)); }
 
-.tasks .task-label {
+.tasks .task-label { /* checked açıklama yazısı */
   color: var(--davys-gray);
   font-size: var(--fs-9);
   font-weight: var(--fw-600);
-  line-height: 1.5;
+  line-height: 1.5; /* satır aralığı */
 }
 
-.tasks .card-meta-list {
+.tasks .card-meta-list { /* aşama - yorum - derece listesi */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -700,9 +702,9 @@ body {
   gap: 5px;
 }
 
-.tasks .btn-primary {
-  margin-block: 25px;
-  margin-inline: auto;
+.tasks .btn-primary { /* load more butonu */
+  margin-block: 25px; /*  blok ekseninde (yukarıdan aşağıya) */
+  margin-inline: auto; /* satır ekseninde (soldan sağa) */
 }
 
 .tasks .btn-primary .spiner {
@@ -710,7 +712,8 @@ body {
   border: 2px solid var(--blue-ryb);
   border-top-color: transparent;
   border-radius: 50%;
-  animation: rotate 0.75s linear infinite;
+  animation: rotate 0.75s linear infinite; /* rotate için @keyframes tanımlı */
+  /* 0.75 saniyede bir kez dönmesi ve doğrusal bir hareketle sonsuz tekrarlanır */
   display: none;
 }
 
@@ -726,3 +729,232 @@ body {
 }
 
 .tasks .btn-primary.active .spiner { display: block; }
+
+
+/*-----------------------------------*\
+  #FOOTER
+\*-----------------------------------*/
+
+.footer {
+  background: var(--white);
+  padding-block: 25px;
+}
+
+.footer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.footer-link,
+.copyright {
+  color: var(--davys-gray);
+  font-size: var(--fs-6);
+  line-height: 1.7;
+}
+
+.footer-link,
+.copyright-link {
+  display: inline-block;
+  transition: var(--transition);
+}
+
+:is(.footer-link, .copyright-link):is(:hover, :focus) { color: var(--blue-ryb); }
+
+.footer-item:not(:last-child)::after { /* en sonda olmayan ögelerin sonuna "-" işareti ekler */
+  content: "-";
+  color: hsl(0, 0%, 80%);
+  font-weight: var(--fw-600);
+  margin-inline: 5px;
+}
+
+.copyright-link { color: inherit; } 
+
+
+/*-----------------------------------*\
+  #MEDİA QUERIES
+\*-----------------------------------*/
+
+/**
+ * 400px den büyük cihazlar için
+ */
+
+ @media (min-width: 400px) {
+
+  /**
+   * HOME
+   */
+  .revenue-item:first-child { margin-bottom: 0; }
+
+  .revenue-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
+
+
+/**
+ * 570px den büyük cihazlar için
+ */
+
+@media (min-width: 570px) {
+
+  /**
+   * REUSED STYLE
+   */
+  .container {
+    max-width: 550px;
+    margin-inline: auto;
+  }
+
+  /**
+   * HEADER
+   */
+  .navbar-list,
+  .user-action-list { padding-inline: 0; }
+
+  /**
+   * HOME
+   */
+  .card-price { --fs-2: 1.625rem; }
+
+  /**
+   * TASKS
+   */
+  .tasks .card-meta-list { justify-content: flex-end; }
+
+}
+
+
+/**
+ * 768px den büyük cihazlar için
+ */
+
+@media (min-width: 768px) {
+
+  /**
+   * REUSED STYLE
+   */
+  .container { max-width: 700px; }
+
+  /**
+   * HOME
+   */
+  .progress-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .progress-item:not(:last-child) { margin-bottom: 0; }
+
+  .home .card-wrapper { grid-template-columns: 1fr 1fr; }
+
+}
+
+
+/**
+ * 992px den büyük cihazlar için
+ */
+
+@media (min-width: 992px) {
+
+  /**
+   * REUSED STYLE
+   */
+  .container { max-width: 950px; }
+
+  /**
+   * HEADER
+   */
+  .menu-toggle-btn { display: none; }
+
+  .header {
+    height: unset;
+    padding-block: 10px;
+  }
+
+  .header.active { height: unset; }
+
+  .navbar {
+    all: unset;
+    flex-grow: 1;
+  }
+
+  .navbar .container { display: flex; }
+
+  .navbar-list {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-inline: auto;
+  }
+
+  .user-action-list {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  /**
+   * HOME
+   */
+  .article.container { padding-block: 35px; }
+
+  .home { grid-template-columns: 1.25fr 0.75fr 1fr; }
+
+  .home .card-wrapper { grid-template-columns: 1fr; }
+
+  .progress-list { align-items: flex-end; }
+
+  /**
+   * PROJECTS
+   */
+  .project-list { grid-template-columns: repeat(3, 1fr); }
+
+  /**
+   * TASKS
+   */
+  .tasks .task-card {
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    align-items: center;
+  }
+
+  /**
+   * FOOTER
+   */
+  .footer-list { margin-bottom: 0; }
+
+  .footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+/**
+ * 1200px den büyük cihazlar için
+ */
+
+@media (min-width: 1200px) {
+
+  /**
+   * REUSED STYLE
+   */
+  .container { max-width: 1150px; }
+
+  /**
+   * HEADER
+   */
+  .navbar-list { gap: 25px; }
+
+  /**
+   * HOME
+   */
+  .card-price { --fs-2: 1.780rem; }
+}

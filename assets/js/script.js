@@ -9,6 +9,7 @@ navToggleBtn.addEventListener("click", function() {
     header.classList.toggle("active"); /* navToggleBtn öğesine basıldığında, header bileşeninin sınıf listesine (classList) active sınıfını ekler veya kaldırır */
 });
 
+
 /* card-menu-btn'a basıldığında toggle card-menu açılması */
 
 const menuBtn = document.querySelectorAll("[data-menu-btn]"); /* data-menu-btn özniteliğine sahip tüm öğeleri seç */
@@ -18,3 +19,12 @@ for (let i=0; i<menuBtn.length; i++) {
         this.nextElementSibling.classList.toggle("active");
     });
 }
+
+
+/* load more btn loading spin toggle */
+
+const loadMoreBtn = document.querySelector("[data-load-more]");
+
+loadMoreBtn.addEventListener("click", function () {
+  this.classList.toggle("active");
+});
