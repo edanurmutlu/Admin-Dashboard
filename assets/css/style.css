@@ -462,6 +462,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 16px; /* Öğeler arasında boşluk bırakır (dikey 8 piksel, yatay 16 piksel) */
+  justify-content: space-between;
 }
 
 .contact-link {
@@ -738,6 +739,7 @@ body {
 .footer {
   background: var(--white);
   padding-block: 25px;
+  border-radius: var(--radius-6);
 }
 
 .footer-list {
