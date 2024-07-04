@@ -216,8 +216,88 @@ body {
   --mb: 25px; /* Alt boşluk (margin-bottom) için değişken tanımlar */
 }
 
+.section-title-wrapper {
+  padding-block: 25px; /* hem üstten hem de alttan boşluk bırakır */
+  display: flex;
+  flex-wrap: wrap; /* genişlik aşıldığında yeni satıra geç */
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
 
+.section-title {
+  color: var(--onyx);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+}
 
+.btn {  /* Recent Projects -> View All butonu */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
+  padding: 8px 16px;
+  border-radius: var(--radius-6);
+}
+
+.btn .icon {
+  font-size: 16px;
+  font-variation-settings: 'wght' 400;
+}
+
+.btn-link { color: var(--blue-ryb); }
+
+.btn-link:is(:hover, :focus) { background: var(--blue-ryb_12); }
+
+.btn-primary {
+  color: var(--blue-ryb);
+  border: 1px solid var(--blue-ryb); /* 1 piksel genişliğinde --blue-ryb rengiyle çerçeve ekler */
+  transition: var(--transition); /* geçiş efekti */
+}
+
+.btn-primary:is(:hover, :focus) {
+  background: var(--blue-ryb);
+  color: var(--white);
+  box-shadow: 0 10px 10px -8px var(--blue-ryb); /*  Mavi gölgeli bir kutu gölgesi ekler */
+}
+
+.card-badge { /* Recent Project -> Badge */
+  background: var(--bg, var(--davys-gray_12));
+  color: var(--color, var(--davys-gray));
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
+  width: max-content;
+  padding: 3px 8px;
+  border-radius: var(--radius-6);
+}
+
+.card-badge.blue {
+  --bg: var(--blue-ryb_12);
+  --color: var(--blue-ryb);
+}
+
+.card-badge.orange {
+  --bg: var(--coral_12);
+  --color: var(--coral);
+}
+
+.card-badge.cyan {
+  --bg: var(--pacific-blue_12);
+  --color: var(--pacific-blue);
+}
+
+.card-badge.red {
+  --bg: var(--imperial-red_12);
+  --color: var(--imperial-red);
+}
+
+.card-badge.green {
+  --bg: var(--emerald_12);
+  --color: var(--emerald);
+}
+
+.card-badge.radius-pill { border-radius: 50px; }
 
 
 /*-----------------------------------*\
@@ -451,7 +531,7 @@ body {
 }
 
 .home .task-card .card-icon {
-  background: var(--background);
+  background: var(--background); /* iconlar için tanımlanan yerlere daha önce tanımlanmış olan renkler değişken üzerinden atandı */
   padding: 10px;
   border-radius: var(--radius-6);
 }
@@ -467,3 +547,182 @@ body {
   color: var(--cool-gray);
   font-size: var(--fs-6);
 }
+
+.revenue-card .card-title { margin-bottom: 15px; }
+
+.card-price {
+  color: var(--onyx);
+  font-size: var(--fs-2);
+  font-weight: var(--fw-600);
+  margin-bottom: 12px;
+}
+
+.revenue-card .card-text {
+  color: var(--cool-gray);
+  font-size: var(--fs-6);
+}
+
+.revenue-item {
+  display: flex; 
+  align-items: center;
+  gap: 15px;
+}
+
+.revenue-item:first-child { margin-bottom: 10px; }
+
+.revenue-item .icon { font-size: 30px; }
+
+.revenue-item .icon.green { color: var(--emerald); }
+
+.revenue-item .icon.red { color: var(--imperial-red); }
+
+.revenue-item-data {
+  color: var(--onyx);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-600);
+  margin-bottom: 5px;
+}
+
+.revenue-item-text {
+  color: var(--cool-gray);
+  font-size: var(--fs-9);
+}
+
+/*-----------------------------------*\
+  #PROJECTS
+\*-----------------------------------*/
+
+.project-list {
+  display: grid;
+  gap: 25px;
+}
+
+.project-card .card-date {
+  color: var(--cool-gray);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-500);
+  margin-bottom: 20px;
+}
+
+.project-card .card-title {
+  color: var(--onyx);
+  font-size: var(--fs-4);
+  margin-bottom: 8px;
+}
+
+.project-card .card-title > a { /* .project-card sınıfı içindeki, .card-title sınıfı altında bulunan <a> etiketleri */
+  color: inherit;
+  transition: var(--transition);
+}
+
+.project-card .card-title > a:is(:hover, :focus) { color: var(--blue-ryb); }
+
+.project-card .card-badge { margin-bottom: 20px; }
+
+.project-card .card-text {
+  color: var(--cool-gray);
+  font-size: var(--fs-7);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.project-card .card-progress-box { margin-bottom: 15px; }
+
+.project-card .progress-title { font-weight: var(--fw-600); }
+
+.project-card .progress-data {
+  color: var(--onyx);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
+}
+
+.project-card .progress-bar { margin-top: 10px; }
+
+.card-avatar-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-avatar-item > a {
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card-avatar-item:not(:first-child) { margin-left: -15px; } /* .card-avatar-item sınıfına sahip olan öğelerden sadece ilk öğe hariç diğer öğeler için sol kenar boşluğu (margin) ayarlarını tanımlar */
+
+
+/*-----------------------------------*\
+  #TASKS
+\*-----------------------------------*/
+
+.tasks-item:not(:last-child) { margin-bottom: 10px; }
+
+.tasks .task-card {
+  display: grid;
+  gap: 15px;
+}
+
+.tasks .card-input {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tasks .card-input > input {
+  margin-top: 2px;
+  accent-color: var(--blue-ryb);
+}
+
+.tasks .card-input > input:checked { filter: drop-shadow(0 0 2px var(--blue-ryb)); }
+
+.tasks .task-label {
+  color: var(--davys-gray);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
+  line-height: 1.5;
+}
+
+.tasks .card-meta-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+}
+
+.tasks .meta-box {
+  color: var(--davys-gray);
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tasks .btn-primary {
+  margin-block: 25px;
+  margin-inline: auto;
+}
+
+.tasks .btn-primary .spiner {
+  padding: 6px;
+  border: 2px solid var(--blue-ryb);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: rotate 0.75s linear infinite;
+  display: none;
+}
+
+.tasks .btn-primary:is(:hover, :focus) .spiner {
+  border-color: var(--white);
+  border-top-color: transparent;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0); }
+
+  100% { transform: rotate(1turn); }
+}
+
+.tasks .btn-primary.active .spiner { display: block; }
