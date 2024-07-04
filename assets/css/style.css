@@ -460,9 +460,10 @@ body {
 
 .contact-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px; /* Öğeler arasında boşluk bırakır (dikey 8 piksel, yatay 16 piksel) */
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0px 0px 5px 0px;
+  gap: 3px;
 }
 
 .contact-link {
